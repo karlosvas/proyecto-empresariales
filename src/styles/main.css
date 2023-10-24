@@ -1,0 +1,15 @@
+header {
+    height: 10%;
+    width: 100%;
+    background-color: black;
+}
+
+main {
+    color: aqua;
+    height: 80%;
+}
+
+footer {
+    height: 10%;
+    background-color: black;
+}
