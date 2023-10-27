@@ -4,6 +4,7 @@ body {
 }
 
 header {
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,9 +15,9 @@ header {
     & img {
         position: absolute;
         left: 0;
-        margin: 30px;
-        height: 70px;
-        width: 70px;
+        margin-left: 30px;
+        height: 100px;
+        width: 100px;
     }
 
     & li{
@@ -31,7 +32,7 @@ header {
     & .hr-list {
         display: flex;
         font-weight: 900px;
-        font-size: 1.5em;
+        font-size: 30px;
         padding: 0;
         & li {
             margin-right: 20px;
@@ -52,8 +53,14 @@ main {
     color: black;
     background-color: rgb(185, 255, 232);
     height: 80%;
+    padding: 10%;
+
     & .div-main {
-        padding: 50px;
+        & img{
+            height: 300px;
+            width: 300px;
+            border-radius: 10px;
+        }
     }
 }
 

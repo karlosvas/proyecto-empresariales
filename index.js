@@ -8,12 +8,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 dotenv.config();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 app.set("views", join(__dirname, 'views'));
-app.use(express.static(join(__dirname, "src")));
+app.use(express.static(join(__dirname, "public")));
 app.set("view engine", "ejs");
-
 
 app.use(json())
 app.disable('x-powered-by')
