@@ -1,6 +1,8 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    font-family: monospace;
+    color: black;
 }
 
 header {
@@ -10,8 +12,10 @@ header {
     align-items: center;
     height: 15%;
     width: 100%;
-    background-color: rgb(20, 20, 20);
-
+    font-size: 30px;
+    font-weight: 500;
+    background-color: rgb(185, 255, 232);
+    border-bottom: 4px solid rgb(44, 255, 185);
     & img {
         position: absolute;
         left: 0;
@@ -19,43 +23,53 @@ header {
         height: 100px;
         width: 100px;
     }
-
     & li{
         list-style: none;
-        color: rgb(255, 255, 255);
         & a {
             text-decoration: none;
             color: inherit;
         }
     }
-    
     & .hr-list {
         display: flex;
-        font-weight: 900px;
-        font-size: 30px;
         padding: 0;
         & li {
             margin-right: 20px;
         }
     }
-
     & .register {
         display: flex;
         position: absolute;
         right: 20;
         & li {
             margin-right: 20px;
+            & button{
+                background-color: rgb(44, 255, 185);;
+                border-radius: 10px;
+                font-weight: 500;
+                height: 40px;
+                width: 80px;
+            }
+            & button:hover{
+                transition: all 0.3s;
+                border: none;
+                color: aliceblue;
+                background-color: rgb(1, 255, 98);
+            }
+
         }
     }
 }
 
 main {
-    color: black;
-    background-color: rgb(185, 255, 232);
+    background-color: rgb(255, 255, 255);
     height: 80%;
     padding: 10%;
-
     & .div-main {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
         & img{
             height: 300px;
             width: 300px;
@@ -66,8 +80,8 @@ main {
 
 footer {
     height: 10%;
-    background-color: black;
-    color: aliceblue;
+    background-color: rgb(185, 255, 232);
+    border-top: 4px solid rgb(44, 255, 185);
     display: flex;
     justify-content: center;
     align-items: center;
