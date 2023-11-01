@@ -19,7 +19,7 @@ app.set("view engine", "ejs");
 app.use(json())
 app.disable('x-powered-by')
 
-connectDB()
+connectDB();
 
 app.get('/', async (req, res) => {
     try {
