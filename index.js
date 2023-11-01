@@ -1,10 +1,10 @@
-"use strict"
+'use strict'
 import express, { json } from 'express';
 import dotenv from 'dotenv';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { connectDB } from './db/mongodb.js';
-import { modelProduct } from './db/models/Product.js'
+import { findProduct } from './db/CRUD/Product/readProduct.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -19,14 +19,23 @@ app.set("view engine", "ejs");
 app.use(json())
 app.disable('x-powered-by')
 
-connectDB();
+connectDB()
 
-app.get('/', (req, res) => {
-    res.render("index");
+app.get('/', async (req, res) => {
+    try {
+        const data = await findProduct();
+        res.render("index", { products: data });
+    } catch (error) {
+        console.error(error)
+    }
 })
 
 app.get('/contacto', (req, res) => {
     res.render("contacto");
+})
+
+app.get('/postre', (req, res) => {
+    res.render("postre");
 })
 
 app.use('/', (req, res, next) => {
