@@ -3,9 +3,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empresariales</title>
-    <link rel="icon" type="image/x-icon" href="../styles/icono.ico">
+    <link rel="stylesheet" type="text/css" href="styles/postre.css">
+    <link rel="icon" type="image/x-icon" href="styles/icono.ico">
 </head>
 <body>
-    
+    <header>
+        <a href="/">
+            <img src="styles/icono.ico">
+        </a>
+
+        <nav>
+            <ul class="hr-list">
+                <li><a href="/">Postres</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <ul class="register">
+            <li>
+                <button type="button">
+                    <a href="">Register</a>
+                </button>
+            </li>
+            <li>
+                <button type="button">
+                    <a href="">Login</a>
+                </button>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <div class="div-product">
+            <h1><%= postre.name %></h1>
+            <img src="<%= postre.imgUrl %>">
+            <p><%= postre.recipe %></p>
+        </div>
+    </main>
+    <footer></footer>
 </body>
 </html>

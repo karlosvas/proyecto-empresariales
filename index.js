@@ -5,6 +5,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { connectDB } from './db/mongodb.js';
 import { findProduct } from './db/CRUD/Product/readProduct.js';
+import cookieParser from 'cookie-parser';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -18,6 +19,7 @@ app.set("view engine", "ejs");
 
 app.use(json())
 app.disable('x-powered-by')
+app.use(cookieParser());
 
 connectDB();
 
@@ -34,8 +36,16 @@ app.get('/contacto', (req, res) => {
     res.render("contacto");
 })
 
-app.get('/postre', (req, res) => {
-    res.render("postre");
+app.get('/postre', async (req, res) => {
+    try {
+        const data = await findProduct();
+        const cookie = req.cookies.postre;
+        const postre = data.find((element) => element.name === cookie);
+        res.render("postre", { postre });
+
+    } catch (error) {
+        console.error(error)
+    }
 })
 
 app.use('/', (req, res, next) => {
