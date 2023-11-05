@@ -1,18 +1,17 @@
 body{
     margin: 0;
     font-family: monospace;
+    overflow-y: scroll;
 }
 
 header {
-    top: 0;
     position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 15%;
     width: 100%;
-    font-size: 30px;
-    font-weight: 500;
+    font-size: 20px;
     background-color: rgb(185, 255, 232);
     border-bottom: 4px solid rgb(44, 255, 185);
     & img {
@@ -43,30 +42,34 @@ header {
         & li {
             margin-right: 20px;
             & button{
-                background-color: rgb(44, 255, 185);;
+                color: aliceblue;
                 border-radius: 10px;
+                background-color: rgb(24, 24, 24);
                 font-weight: 500;
                 height: 40px;
                 width: 80px;
             }
             & button:hover{
-                transition: all 0.3s;
+                transition:  background-color 0.3s;
                 border: none;
-                color: aliceblue;
-                background-color: rgb(1, 255, 98);
+                color: black;
+                background-color: rgb(44, 255, 185);
+                border: 5px solid rgb(255, 255, 255);
             }
-
         }
     }
 }
 
+
 main{
     padding: 200px 100px;
-    .div-product{
+    .product{
+        display: flex;
         & h1{
             align-content: end;
         }
         & p{
+            padding: 20px;
             font-size: 20px;
         }
         & img{

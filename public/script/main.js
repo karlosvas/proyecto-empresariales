@@ -1,6 +1,6 @@
 "use strict"
 
-const imagenes = document.querySelectorAll('.main-img');
+const imagenes = document.querySelectorAll('.card');
 
 imagenes.forEach((imagen) => {
     imagen.addEventListener('click', () => {

@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 import { connectDB } from './db/mongodb.js';
 import { findProduct } from './db/CRUD/Product/readProduct.js';
 import cookieParser from 'cookie-parser';
+import { textRecipe } from './public/script/action.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -25,8 +26,8 @@ connectDB();
 
 app.get('/', async (req, res) => {
     try {
-        const data = await findProduct();
-        res.render("index", { products: data });
+        const products = await findProduct();
+        res.render("index", { products });
     } catch (error) {
         console.error(error)
     }
@@ -40,8 +41,10 @@ app.get('/postre', async (req, res) => {
     try {
         const data = await findProduct();
         const cookie = req.cookies.postre;
-        const postre = data.find((element) => element.name === cookie);
-        res.render("postre", { postre });
+        const product = data.find((element) => element.name === cookie);
+        const recipe = textRecipe(product.recipe)
+
+        res.render("postre", { product, recipe });
 
     } catch (error) {
         console.error(error)

@@ -9,46 +9,56 @@
 </head>
 <body>
     <header>
-            <nav>
-                <ul class="hr-list">
-                    <li><a href="/">Postres</a></li>
-                    <li><a href="/contacto">Contacto</a></li>
-                </ul>
-            </nav>
-
-            <ul class="register">
-                <li>
-                    <button type="button">
-                        <a href="">Register</a>
-                    </button>
-                </li>
-                <li>
-                    <button type="button">
-                        <a href="">Login</a>
-                    </button>
-                </li>
+        <a href="/">
+            <img src="styles/icono.ico">
+        </a>
+        <nav>
+            <ul class="hr-list">
+                <li><a href="/"><h2>Postres</h2></a></li>
+                <li><a href="/contacto"><h2>Contacto</h2></a></li>
             </ul>
+        </nav>
 
-            
+        <ul class="register">
+            <li>
+                <button type="button">
+                    <a href="">Register</a>
+                </button>
+            </li>
+            <li>
+                <button type="button">
+                    <a href="">Login</a>
+                </button>
+            </li>
+        </ul>
     </header>
+
     <main>
         <div class="div-left-info">
-
         </div>
 
-            <div class="div-main">
+        <div class="div-main">
+            
             <% products.forEach(product => { %>
+              <div class="products inactive">
+                  <div class="card" id="<%= product.name %>">
                     <a href="/postre">
-                        <img class="main-img" src="<%= product.imgUrl  %>" id ="<%= product.name %>">
+                    <div class="side front">
+                        <img src="<%= product.imgUrl %>">
+                        <h2><%= product.name %></h2>
+                    </div>
                     </a>
-                    <%= product.name %>
+                  </div>
+              </div>
             <% }); %>
-            </div>
+
+        </div>
 
         <div class="div-rigth-info">
-
         </div>
+            
     </main>
+
     <footer>
         <p>&copy; 2023 Tu CarlosV IzanSan Angel Predro. Todos los derechos reservados.</p>
     </footer>
