@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 import { connectDB } from './db/mongodb.js';
 import { findProduct } from './db/CRUD/Product/readProduct.js';
 import cookieParser from 'cookie-parser';
-import { textRecipe } from './public/script/action.js'
+import { textRecipe } from './public/script/action-server.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -18,7 +18,7 @@ app.set("views", join(__dirname, 'views'));
 app.use(express.static(join(__dirname, "public")));
 app.set("view engine", "ejs");
 
-app.use(json())
+app.use(express.json())
 app.disable('x-powered-by')
 app.use(cookieParser());
 

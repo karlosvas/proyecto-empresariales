@@ -1,4 +1,6 @@
 import { modelUser } from '../../models/user.js'
+// import { connectDB } from '../../mongodb.js'
+// connectDB();
 
 export async function createUser(username, password) {
     const user = new modelUser({
