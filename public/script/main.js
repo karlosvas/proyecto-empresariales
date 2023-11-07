@@ -3,6 +3,7 @@ import { verificData, deleteForm } from "./action.js";
 
 document.getElementById('login').addEventListener('click', () => {
     let isLog = JSON.parse(localStorage.getItem('logeado'))
+    console.log(isLog)
     if (isLog) {
         localStorage.setItem('logeado', false)
         document.getElementById('login').textContent = "Login"
