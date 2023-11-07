@@ -1,12 +1,21 @@
 'uise strict'
 import { modelProduct } from '../../models/Product.js';
 
-export async function updateRecipe(name, newRecipe) {
-    const result = await modelProduct.updateOne(
+export async function updateRobot(name, newDescription, newPrice, newImg) {
+    const updateData = {};
+
+    if (newDescription !== null) updateData.description = newDescription;
+    if (newPrice !== null) updateData.price = newPrice;
+    if (newImg !== null) updateData.imgUrl = newImg;
+
+    const result = await modelProduct.updateMany(
         { name: name },
-        { $set: { recipe: newRecipe } }
+        {
+            $set: updateData
+        }
     );
-    console.log(result)
+    console.log(updateData)
+    console.log("Actualizado corretcamente", result)
     return result;
 }
 
@@ -18,5 +27,3 @@ export async function updatePrice(name, newPrice) {
     console.log(result)
     return result;
 }
-
-updatePrice("Batido de fresa", 6)

@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: monospace;
-    color: black;
+    color: aliceblue;
     overflow-y: scroll;
     & .form-background {
       position: fixed;
@@ -16,6 +16,7 @@ body {
       align-items: center;
     }
     & .form {
+      color: #383838;
       position: fixed;
       display: flex;
       flex-direction: column;
@@ -58,6 +59,10 @@ body {
       & .res{
         color: red;
       }
+      & h1{
+        position: absolute;
+        top: 80;
+      }
   }
   
   & .form-content {
@@ -90,7 +95,6 @@ header {
     font-size: 20px;
     background-color: rgb(14, 14, 14);
     border-bottom: 4px solid rgb(133, 133, 133);
-    color: aliceblue;
     z-index: 100;
     & img {
         position: absolute;
@@ -120,7 +124,7 @@ header {
         & li {
             margin-right: 20px;
             & button{
-              color: aliceblue;
+                color: aliceblue;
                 border-radius: 10px;
                 background-color: rgb(44, 44, 44);
                 border: none;
@@ -165,6 +169,8 @@ main {
         margin: 4px;
         perspective: 1000px;
         & img{
+          object-fit: cover;
+          object-position: center center;
           background-color: #dadce2;
           background-position: center;
           background-size: cover;
@@ -187,6 +193,12 @@ main {
           transform-style: preserve-3d;
           transform: translateZ(-100px);
           transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          & p{
+            text-decoration: none;
+            color: #383838;
+          }
           & .side {
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
@@ -238,8 +250,6 @@ main {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   height: 10%;
   border-top: 4px solid rgb(133, 133, 133);

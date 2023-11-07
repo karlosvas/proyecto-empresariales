@@ -6,7 +6,6 @@ import { fileURLToPath } from 'url';
 import { connectDB } from './db/mongodb.js';
 import { findProduct } from './db/CRUD/Product/readProduct.js';
 import cookieParser from 'cookie-parser';
-import { textRecipe } from './public/script/action-server.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -41,9 +40,8 @@ app.get('/postre', async (req, res) => {
         const data = await findProduct();
         const cookie = req.cookies.postre;
         const product = data.find((element) => element.name === cookie);
-        const recipe = textRecipe(product.recipe)
 
-        res.render("postre", { product, recipe });
+        res.render("robot", { product });
 
     } catch (error) {
         console.error(error)

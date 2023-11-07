@@ -5,5 +5,3 @@ export async function findProduct() {
     const products = await modelProduct.find()
     return products;
 }
-
-// findProduct();

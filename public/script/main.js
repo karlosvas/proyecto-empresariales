@@ -55,7 +55,7 @@ function crearModal() {
         const submit = document.createElement("button");
         const inputEmail = document.createElement("input");
         const inputPassword = document.createElement("input");
-        const title = document.createElement("h3");
+        const title = document.createElement("h1");
         const res = document.createElement("p");
 
         nuevoDiv.className = "form";
@@ -68,6 +68,7 @@ function crearModal() {
         formBackground.className = "form-background "
 
         submit.textContent = "Enviar";
+        title.textContent = "Inicia sesion en RoboTec"
 
         inputEmail.type = "email"
         inputPassword.type = "password"
@@ -76,16 +77,15 @@ function crearModal() {
         inputEmail.placeholder = "Correo electónico";
         inputPassword.placeholder = "Contraseña";
 
-        title.textContent = "Inicia sesion en"
         document.body.appendChild(formBackground);
         formBackground.appendChild(nuevoDiv)
         contentDiv.appendChild(delButton);
         nuevoDiv.appendChild(contentDiv);
         nuevoDiv.appendChild(submit);
-        nuevoDiv.appendChild(title)
+        nuevoDiv.appendChild(title);
         nuevoDiv.appendChild(inputEmail);
         nuevoDiv.appendChild(inputPassword);
-        nuevoDiv.appendChild(res)
+        nuevoDiv.appendChild(res);
 
         modalObject.modal = nuevoDiv;
         delButton.addEventListener("click", deleteForm);

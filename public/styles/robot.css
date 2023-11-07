@@ -12,8 +12,9 @@ header {
     height: 15%;
     width: 100%;
     font-size: 20px;
-    background-color: rgb(185, 255, 232);
-    border-bottom: 4px solid rgb(44, 255, 185);
+    background-color: rgb(14, 14, 14);
+    border-bottom: 4px solid rgb(133, 133, 133);
+    z-index: 100;
     & img {
         position: absolute;
         left: 30;
@@ -44,7 +45,8 @@ header {
             & button{
                 color: aliceblue;
                 border-radius: 10px;
-                background-color: rgb(24, 24, 24);
+                background-color: rgb(44, 44, 44);
+                border: none;
                 font-weight: 500;
                 height: 40px;
                 width: 80px;
@@ -54,7 +56,7 @@ header {
                 border: none;
                 color: black;
                 background-color: rgb(44, 255, 185);
-                border: 5px solid rgb(255, 255, 255);
+                border: 3px solid rgb(255, 255, 255);
             }
         }
     }
@@ -72,12 +74,14 @@ main{
         justify-content: center;
         align-items: center;
         & p{
-            padding: 20px;
+            width: 50%;
+            padding: 30px;
             font-size: 20px;
         }
         & img{
             height: 400px;
             width: 400px;
+            object-fit: contain;
         }
     }
 }
