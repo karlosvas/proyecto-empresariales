@@ -1,5 +1,5 @@
 'use strict'
-import express, { json } from 'express';
+import express from 'express';
 import dotenv from 'dotenv';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -18,7 +18,6 @@ app.set("views", join(__dirname, 'views'));
 app.use(express.static(join(__dirname, "public")));
 app.set("view engine", "ejs");
 
-app.use(express.json())
 app.disable('x-powered-by')
 app.use(cookieParser());
 
