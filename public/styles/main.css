@@ -9,8 +9,8 @@ body {
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
-      z-index: 999; /* Asegura que esté por encima de otros elementos */
+      background: rgba(0, 0, 0, 0.6); 
+      z-index: 100;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -30,6 +30,8 @@ body {
       z-index: 100;
       height: 50%;
       width: 25%;
+      min-width: 400px;
+      max-width: 400px;
       & .submit-form {
         position: absolute;
         bottom: 20;
@@ -155,7 +157,7 @@ main {
     & .div-main {
       padding: 50px 0;
       display: grid;
-      grid-template-columns: 300px 300px 300px;
+      grid-template-columns: repeat(auto-fill, 300px);
       justify-content: center;
       align-items: center;
       gap: 40px;
@@ -259,5 +261,78 @@ footer {
   align-items: center;
 }
 
+/* Estilos para pantallas más pequeñas */
+@media screen and (max-width: 1000px) {
+  main{
+    padding-top: 15%;
+  }
+}
 
+@media screen and (max-width: 700px) {
+  header{
+    & .hr-list{
+      padding-right: 70px;
+      font-size: 15px;
+    }
+    & img{
+      top: 20;
+      height: 70px;
+      width: 70px;
+    }
+    & .register {
+      right: 5;
+      & li {
+          margin-right: 10px;
+          & button{
+              height: 35px;
+              width: 70px;
+          }
+      }
+    }
+  }
+  main {
+    padding-top: 20%;
+    .products {
+      width: 100%;
+    }
+  }
+}
 
+@media screen and (max-width: 470px) {
+  body{
+    .form {
+      min-width: 300px;
+      text-align: center;
+      & .form-content{
+        padding: 10px 13px;
+      }
+      & h1{
+        margin-top: -20px;
+      }
+    }
+  }
+  header{
+    & .hr-list{
+      padding-right: 80px;
+      font-size: 10px;
+      & li{
+        margin: 5px;
+      }
+    }
+    & img{
+      top: 25;
+      height: 50px;
+      width: 50px;
+    }
+    & .register {
+      right: 5;
+      & li {
+          margin-right: 10px;
+          & button{
+              height: 30px;
+              width: 60px;
+          }
+      }
+    }
+  }
+}

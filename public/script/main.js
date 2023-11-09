@@ -1,5 +1,5 @@
 "use strict"
-import { verificData, deleteForm } from "./action.js";
+import { verificData, deleteForm } from "./action-client.js";
 
 document.getElementById('login').addEventListener('click', () => {
     let isLog = JSON.parse(localStorage.getItem('logeado'))

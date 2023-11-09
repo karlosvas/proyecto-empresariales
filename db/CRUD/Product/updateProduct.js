@@ -14,16 +14,6 @@ export async function updateRobot(name, newDescription, newPrice, newImg) {
             $set: updateData
         }
     );
-    console.log(updateData)
-    console.log("Actualizado corretcamente", result)
-    return result;
-}
-
-export async function updatePrice(name, newPrice) {
-    const result = await modelProduct.updateOne(
-        { name: name },
-        { $set: { price: newPrice } }
-    );
-    console.log(result)
+    console.log("Actualizado corretcamente")
     return result;
 }

@@ -12,6 +12,7 @@ header {
     height: 15%;
     width: 100%;
     font-size: 20px;
+    color: aliceblue;
     background-color: rgb(14, 14, 14);
     border-bottom: 4px solid rgb(133, 133, 133);
     z-index: 100;
@@ -79,9 +80,98 @@ main{
             font-size: 20px;
         }
         & img{
-            height: 400px;
-            width: 400px;
+            height: 30%;
+            width: 30%;
             object-fit: contain;
+        }
+    }
+}
+
+/* Estilos para pantallas más pequeñas */
+@media screen and (max-width: 1000px) {
+    main{
+      padding-top: 15%;
+    }
+}
+  
+@media screen and (max-width: 700px) {
+    header{
+      & .hr-list{
+        padding-right: 70px;
+        font-size: 15px;
+      }
+      & img{
+        top: 20;
+        height: 70px;
+        width: 70px;
+      }
+      & .register {
+        right: 5;
+        & li {
+            margin-right: 10px;
+            & button{
+                height: 35px;
+                width: 70px;
+            }
+        }
+      }
+    }
+    main {
+      padding-top: 30%;
+      & h1{
+        margin: 0;
+        padding: 0;
+      }
+      .product {
+        flex-direction: column;
+        width: 100%;
+        & p{
+            width: 100%;
+        }
+        & img{
+            padding-top: 10%;
+            width: 90vw;
+            height: auto;
+        }
+      }
+    }
+}
+  
+@media screen and (max-width: 470px) {
+    body{
+        .form {
+        min-width: 300px;
+        text-align: center;
+        & .form-content{
+            padding: 10px 13px;
+        }
+        & h1{
+            margin-top: -20px;
+        }
+        }
+    }
+    header{
+        & .hr-list{
+        padding-right: 80px;
+        font-size: 10px;
+        & li{
+            margin: 5px;
+        }
+        }
+        & img{
+        top: 25;
+        height: 50px;
+        width: 50px;
+        }
+        & .register {
+        right: 5;
+        & li {
+            margin-right: 10px;
+            & button{
+                height: 30px;
+                width: 60px;
+            }
+        }
         }
     }
 }
