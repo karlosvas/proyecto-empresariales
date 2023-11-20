@@ -8,6 +8,6 @@ const conrtrollers = controller;
 // Rutas de / (Raiz)
 router.get('/', conrtrollers.index)
 router.get('/contacto', conrtrollers.contacto)
-router.get('/postre', controller.postre)
+router.get('/robot', controller.robot)
 
 export default router;

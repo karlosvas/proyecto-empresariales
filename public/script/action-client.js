@@ -1,5 +1,5 @@
 'use strict'
-import { modalObject } from './main.js'
+import { modalObject } from './login.js'
 
 export function verificData(username, password) {
     const res = document.querySelector(".p-res")

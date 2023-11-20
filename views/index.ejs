@@ -3,65 +3,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RoboTec</title>
-    <script defer src="../script/main.js" type="module"></script>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <link rel="icon" type="image/x-icon" href="styles/icono.ico">
 </head>
 <body>
-    <header>
-        <a href="/">
-            <img src="styles/icono.ico">
-        </a>
-        <nav>
-            <ul class="hr-list">
-                <li><a href="/"><h2>Robots</h2></a></li>
-                <li><a href="/contacto"><h2>Contacto</h2></a></li>
-            </ul>
-        </nav>
-
-        <ul class="register">
-            <li>
-                <button type="button" id="register">
-                    <a href="">Register</a>
-                </button>
-            </li>
-            <li>
-                <button type="button" id="login">
-                    Login
-                </button>
-            </li>
-        </ul>
-    </header>
-
+    <%- include('./partials/header') %>
+    
     <main>
-        <div class="div-left-info">
-        </div>
-
+        <div class="div-left-info"></div>
+        
         <div class="div-main">
-            
             <% products.forEach(product => { %>
-              <div class="products inactive">
-                  <div class="card" id="<%= product.name %>">
-                    <a href="/postre">
-                    <div class="side front">
-                        <img loading="lazy" src="<%= product.imgUrl %>">
-                        <h2><%= product.name %></h2>
-                        <p><%= product.description %></p>
+                <div class="products inactive">
+                    <div class="card" id="<%= product.name %>">
+                        <a href="/robot">
+                            <div class="side front">
+                                <img width="300px" height="250px" src="<%= product.imgUrl %>">
+                                <h2><%= product.name %></h2>
+                                <p><%= product.description %></p>
+                            </div>
+                        </a>
                     </div>
-                    </a>
-                  </div>
-              </div>
+                </div>
             <% }); %>
-
+                
+            <div class="div-rigth-info"></div>
         </div>
-
-        <div class="div-rigth-info">
-        </div>
-            
-    </main>
-
-    <footer>
-        <p>&copy; 2023 CarlosV IzanSan Angel Predro. Todos los derechos reservados.</p>
-    </footer>
+        </main>
+        
+        <footer>
+            <p>&copy; 2023 CarlosV IzanSan Angel Predro. Todos los derechos reservados.</p>
+        </footer>
+        <script src="../script/main.js" type="module"></script>
 </body>
 </html>

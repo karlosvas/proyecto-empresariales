@@ -1,7 +1,5 @@
 'use strict'
 import { modelProduct } from '../../models/Product.js'
-import { connectDB } from '../../mongodb.js'
-connectDB()
 
 export async function deleteProduct(name) {
     const result = await modelProduct.findOneAndDelete({ name: name })
@@ -15,7 +13,7 @@ export async function deleteAllProduct(name) {
     return result;
 }
 
-deleteProduct("Tarta de chocolate")
-    .then((result) => console.log(result));
+// deleteProduct("Tarta de chocolate")
+//     .then((result) => console.log(result));
 
 // Podremos borrarlo por id utilizando findByIdAndDelate("id")
