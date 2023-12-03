@@ -2,16 +2,18 @@
 import { modalObject } from './login.js'
 
 export function verificData(username, password) {
-    const res = document.querySelector(".p-res")
+    const res = document.getElementById("res")
+    const resTrue = document.getElementById("res-true")
 
     if (username == '' && password == '') return;
-
-    // Email
     const divEmail = document.querySelector('input[type="email"]')
+    const divPassword = document.querySelector('input[type="password"]')
+
     if (username == '') {
         res.textContent = "El usuario es obligatorio"
         return;
     }
+
     if (divEmail.id != "accept") {
         let mayus = 0, symb = 0, dominio = 0, space = 0;
         for (let word of username) {
@@ -34,18 +36,18 @@ export function verificData(username, password) {
             res.textContent = "No se pueden introduir espacios en blanco"
             return
         } else {
-            res.textContent = "Email valido ✅"
+            resTrue.textContent += "Email valido ✅"
             divEmail.id = "accept"
         }
     }
 
     // Contraseñas
-    const divPassword = document.querySelector('input[type="password"]')
     if (divPassword != "accept") {
         if (password == '') {
             res.textContent = "La contraseña es obligatoria"
             return;
         }
+
         let mayusPass = 0, numPass = 0, spacePass = 0;
         for (let word of password) {
             if (word == word.toUpperCase()) mayusPass++;
@@ -65,11 +67,17 @@ export function verificData(username, password) {
         } else {
 
             if (divEmail.id == "accept") {
-                res.textContent = "Usuario creado con éxito✅"
+
+                // if (!redOneUser(username)) {
+                //     createUser(username, password);
+                //     console.log(`Usuario ${username} creado correcttamente ✅`)
+                // }
+
+                resTrue.textContent = `Acceso al usuario ${username} con éxito✅`
                 return true;
             }
-            else res.textContent = "Contraseña valida ✅"
 
+            res.textContent = "Contraseña valida ✅"
             divPassword.id = "accept"
         }
     }

@@ -11,3 +11,21 @@ export function textRecipe(product) {
     }
     return newData
 }
+
+export function enviarFormulario() {
+    const formulario = document.getElementById("miFormulario");
+    const formData = new FormData(formulario);
+
+    fetch('/post/users', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            // Manejar la respuesta del servidor si es necesario
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error al enviar formulario:', error);
+        });
+}

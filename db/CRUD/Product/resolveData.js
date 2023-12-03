@@ -1,9 +1,8 @@
 'use strict'
 import { createProduct } from "./createProduct.js";
-import { connectDB } from '../../mongodb.js'
-connectDB();
 
-export function resolveData(data) {
+// Modifica el texto de bing para añadirlo a la base de datos.
+export function resolveDataBing(data) {
     let res = {
         name: "",
         description: "",
@@ -72,9 +71,17 @@ export function resolveData(data) {
     createProduct(res)
 }
 
-// const data1 = "**Robot Articulado** - Descripcion: Los robots articulados son los más utilizados en la industria en la actualidad. Tienen un diseño similar al brazo humano, compuesto por ejes que se pliegan en diversas direcciones, lo que aumenta su alcance y las posibilidades de aplicación. Existen robots articulados con 2 a 10 ejes, variando el número de puntos de conexión y flexión según la necesidad o el tamaño de la máquina. Los más comunes son los robots de 6 ejes, incluidos los robots colaborativos, que veremos al final. - Precio: $3100 -URL de la imagen: <https://a.storyblok.com/f/136567/1200x1200/2f67ed2901/produkte-knickarmroboter-teile-bearbeitung.jpg/m/x450>"
+// Separa texto por "." y lo cambia por saltos de línea
+export function resolveData(data) {
+    let newData = "";
+    let text = true;
+    for (let i = 0; i < data.length; i++) {
+        if (!text && data[i] != ' ') text = true;
 
-// const data2 = "** Robot lineal** - Descripcion: ENGEL lleva construyendo robots lineales de alto rendimiento desde 1980. Nuestros robots industriales son el complemento perfecto para su máquina de moldeo por inyección.Su diseño innovador y robusto ofrece una mayor capacidad de carga útil con un bajo peso muerto.Las soluciones digitales de nuestro programa inject 4.0 garantizan que todos los movimientos se acoplen perfectamente. - PRecio: $2300 - URL de la imagen: <https://a.storyblok.com/f/136567/700x350/135844d7f7/produkte-spritzguss-automation-roboter.jpg/m/700x350>"
-
-// resolveData(data1);
-// resolveData(data2);
+        if (data[i] == '.') {
+            newData += "<br>";
+            text = false;
+        } else if (text) newData += data[i];
+    }
+    return newData;
+}

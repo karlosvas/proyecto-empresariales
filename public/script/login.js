@@ -2,17 +2,23 @@
 import { verificData, deleteForm } from "./action-client.js";
 
 export function login() {
-    document.getElementById('login').addEventListener('click', () => {
-        let isLog = JSON.parse(localStorage.getItem('logeado'))
-        console.log(isLog)
-        if (isLog) {
-            localStorage.setItem('logeado', false)
-            document.getElementById('login').textContent = "Login"
-        } else {
-            document.getElementById('login').textContent = "Login";
-            crearModal();
-        }
-    })
+    document.getElementById('login').addEventListener('click', () => isloged("login"));
+    document.getElementById('register').addEventListener('click', () => isloged("register"));
+}
+
+export function isloged(status) {
+    let isLog = JSON.parse(localStorage.getItem('logeado')) || false;
+    if (isLog) {
+        localStorage.removeItem('password');
+        localStorage.removeItem('username');
+        localStorage.setItem('logeado', false);
+        document.getElementById('login').textContent = "Login"
+        return true;
+    } else {
+        document.getElementById('login').textContent = "Login";
+        crearModal(status);
+        return false;
+    }
 }
 
 export let modalObject = {
@@ -40,29 +46,35 @@ function submitInfo() {
     }
 }
 
-function crearModal() {
+function crearModal(status) {
     if (modalObject.modal === null) {
         const formBackground = document.createElement("div");
-        const nuevoDiv = document.createElement("div");
-        const contentDiv = document.createElement("div");
+        const form = document.createElement("div");
+        const formBar = document.createElement("div");
         const delButton = document.createElement("button");
         const submit = document.createElement("button");
         const inputEmail = document.createElement("input");
         const inputPassword = document.createElement("input");
         const title = document.createElement("h1");
         const res = document.createElement("p");
+        const resTrue = document.createElement("p");
 
-        nuevoDiv.className = "form";
-        contentDiv.className = "form-content";
+        form.className = "form";
+        formBar.className = "form-bar";
         delButton.className = "del-form";
         submit.className = "submit-form";
         inputEmail.className = "inp-form";
         inputPassword.className = "inp-form";
-        res.className = "p-res";
+        res.id = "res";
+        resTrue.id = "res-true";
         formBackground.className = "form-background "
 
         submit.textContent = "Enviar";
-        title.textContent = "Inicia sesion en RoboTec"
+        if (status == "login") {
+            title.textContent = "Logeate en RoboTec"
+        } else if (status == "register") {
+            title.textContent = "Registrate en RoboTec"
+        }
 
         inputEmail.type = "email"
         inputPassword.type = "password"
@@ -72,16 +84,17 @@ function crearModal() {
         inputPassword.placeholder = "Contraseña";
 
         document.body.appendChild(formBackground);
-        formBackground.appendChild(nuevoDiv)
-        contentDiv.appendChild(delButton);
-        nuevoDiv.appendChild(contentDiv);
-        nuevoDiv.appendChild(submit);
-        nuevoDiv.appendChild(title);
-        nuevoDiv.appendChild(inputEmail);
-        nuevoDiv.appendChild(inputPassword);
-        nuevoDiv.appendChild(res);
+        formBackground.appendChild(form)
+        formBar.appendChild(delButton);
+        form.appendChild(formBar);
+        form.appendChild(title);
+        form.appendChild(inputEmail);
+        form.appendChild(inputPassword);
+        form.appendChild(res);
+        form.appendChild(resTrue);
+        form.appendChild(submit);
 
-        modalObject.modal = nuevoDiv;
+        modalObject.modal = form;
         delButton.addEventListener("click", deleteForm);
 
         submit.addEventListener("click", submitInfo);

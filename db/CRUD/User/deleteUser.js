@@ -1,7 +1,5 @@
 'use strict'
 import { modelUser } from '../../models/User.js'
-// import { connectDB } from '../../mongodb.js'
-// connectDB()
 
 export async function deleteUser(user) {
     const result = await modelUser.findOneAndDelete({ username: user })
@@ -15,7 +13,7 @@ export async function deleteAllUser(user) {
     return result;
 }
 
-// deleteProduct("karlosvas")
+// deleteProduct("")
 //     .then((result) => console.log(result));
 
 // Podremos borrarlo por id utilizando findByIdAndDelate("id")

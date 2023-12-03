@@ -6,7 +6,8 @@ export async function createProduct(data) {
         name: data.name,
         description: data.description,
         price: data.price,
-        imgUrl: data.imgUrl
+        imgUrl: data.imgUrl,
+        spec: data.spec
     })
 
     try {

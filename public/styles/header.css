@@ -1,0 +1,54 @@
+header {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    width: 100%;
+    font-size: 20px;
+    background-color: rgb(14, 14, 14);
+    z-index: 100;
+    & img {
+        position: absolute;
+        left: 30;
+        top: 20;
+        height: 80px;
+        width: 80px;
+    }
+    & li{
+        list-style: none;
+        & a {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+    & .hr-list {
+        display: flex;
+        padding: 0;
+        & li {
+            margin-right: 20px;
+        }
+    }
+    & .register {
+        display: flex;
+        position: absolute;
+        right: 20;
+        & li {
+            margin-right: 20px;
+            & button{
+                color: aliceblue;
+                border-radius: 10px;
+                background-color: rgb(44, 44, 44);
+                border: none;
+                height: 40px;
+                width: 80px;
+            }
+            & button:hover{
+                transition:  background-color 0.3s;
+                border: none;
+                color: black;
+                background-color: rgb(141, 235, 141);
+            }
+        }
+    }
+}

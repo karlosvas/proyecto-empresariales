@@ -1,14 +1,13 @@
-import { modelUser } from '../../models/user.js';
+import { modelUser } from '../../models/User.js';
 
 export async function getUser(user) {
-    // Decvuelbe el usuario con el nombre especificado.
+    // Devuelhbe el usuario con el nombre especificado.
     try {
         const result = await modelUser.findOne({ username: user })
-        console.log(result)
-        return result;
+        if (result) return true;
+        else return false;
     } catch (error) {
-        console.error(error)
+        console.error(error);
+        throw new Error("Error al busacr usuario");
     }
 }
-
-getUser("karlosvas");

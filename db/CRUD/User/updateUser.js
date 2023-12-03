@@ -1,5 +1,5 @@
 'uise strict'
-import { modelUser } from '../../models/user.js';
+import { modelUser } from '../../models/User.js';
 
 export async function updatePassword(key, newKey) {
     const result = await modelUser.updateOne(
