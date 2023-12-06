@@ -8,6 +8,14 @@ const productSchema = new Schema({
     price: Number,
     imgUrl: String,
     specs: String
-})
+}, { _id: false });
+
+const categorySchema = new Schema({
+    industriales: [productSchema],
+    domesticos: [productSchema],
+    tecnologicos: [productSchema],
+    servicio: [productSchema]
+}, { _id: false });
 
 export const modelProduct = model('Product', productSchema)
+export const modelCategoryProduct = model('CategoryProduct', categorySchema)

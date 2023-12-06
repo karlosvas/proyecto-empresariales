@@ -21,6 +21,7 @@ app.set("view engine", "ejs");
 
 app.disable('x-powered-by')
 app.use(cookieParser());
+app.use(express.json());
 
 connectDB();
 

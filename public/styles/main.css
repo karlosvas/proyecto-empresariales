@@ -1,16 +1,9 @@
 main {
     background-color: rgb(255, 255, 255);
-    padding-top: 7.5%;
+    padding-top: 8vw;
     width: 100%;
     display: flex;
-    & .div-left-info{
-        height: auto;
-        width: 15%;
-    }
-    & .div-rigth-info{
-      height: auto;
-      width: 15%;
-    }
+    justify-content: center;
     & .div-main{
       width: 100%;
       & .div-nav{
@@ -47,10 +40,8 @@ main {
           color: black;
           background-color: rgb(157, 218, 197);
         }
-        & #search-inp{
+        & #searchInp{
           position: relative;
-          /* background-color: rgba(0, 0, 0);
-          color: aliceblue; */
           font-family: sans-serif;
           font-weight: 600;
           padding-left: 10px;
@@ -66,6 +57,7 @@ main {
         grid-template-columns: repeat(auto-fill, 300px);
         justify-content: center;
         align-items: center;
+        grid-template-columns: repeat(3, 0.1fr);
         gap: 40px;
         .products {
           position: relative;
@@ -146,7 +138,6 @@ main {
           }
         }
       }
-    }
 }
 
 footer {
