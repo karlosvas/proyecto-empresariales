@@ -1,12 +1,12 @@
 'use strict'
 import express from 'express';
 import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
+import router from './public/routes/index-routes.js';
+import cors from 'cors';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import cookieParser from 'cookie-parser';
-import cors from 'cors';
 import { connectDB } from './db/mongodb.js';
-import router from './public/routes/index-routes.js';
 
 dotenv.config();
 
@@ -19,7 +19,7 @@ app.set("views", join(__dirname, 'views'));
 app.use(express.static(join(__dirname, "public")));
 app.set("view engine", "ejs");
 
-app.disable('x-powered-by')
+app.disable('x-powered-by');
 app.use(cookieParser());
 app.use(express.json());
 

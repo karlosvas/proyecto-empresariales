@@ -27,14 +27,24 @@ controller.index = async (req, res) => {
 }
 
 controller.postData = async (req, res) => {
-    let userInput = req.body.searchInp;
-    userInput = userInput.toLowerCase().trim();
+    let userInput;
 
-    if (category[userInput] !== undefined) {
+    if (req.body.textContent) {
+        userInput = req.body.textContent
+    } else if (req.body.searchInp) {
+        userInput = req.body.searchInp.toLowerCase().trim();
+    } else {
+        console.log(Object.values(category));
+        console.log('No existe la categoría');
+        return;
+    }
+
+    // Se valida si el usuario ingresó una categoría valida.
+    if (category[userInput]) {
         selectCategory = category[userInput]
         console.log(`Categoria ${userInput} selecionada`)
         res.status(200).send('ok');
-    } else console.log('No existe la categoría');
+    }
 }
 
 controller.contacto = (req, res) => {
