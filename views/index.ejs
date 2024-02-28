@@ -1,70 +1,71 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RoboTech</title>
-    <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <link rel="stylesheet" type="text/css" href="styles/modal.css">
-    <link rel="stylesheet" type="text/css" href="styles/header.css">
-    <link rel="icon" type="image/x-icon" href="img/icono.ico">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>RoboTech</title>
+   <link rel="stylesheet" type="text/css" href="styles/main.css">
+   <link rel="stylesheet" type="text/css" href="styles/modal.css">
+   <link rel="stylesheet" type="text/css" href="styles/header.css">
+   <link rel="icon" type="image/x-icon" href="img/icono.ico">
 </head>
 
 <body>
-    <%- include('./partials/header') %>
+   <%- include('./partials/header') %>
 
-        <main>
-            <div class=" div-main">
-                <span>
-                    <button class="btn-category">
-                        Domésticos
-                    </button>
-                    <button class="btn-category">
-                        Industriales
-                    </button>
-                    <button class="btn-category">
-                        Tecnologicos
-                    </button>
-                    <button class="btn-category">
-                        Servicio
-                    </button>
-                </span>
+      <main>
+         <div class=" div-main">
+            <span>
+               <button class="btn-category">
+                  Domésticos
+               </button>
+               <button class="btn-category">
+                  Industriales
+               </button>
+               <button class="btn-category">
+                  Tecnologicos
+               </button>
+               <button class="btn-category">
+                  Servicio
+               </button>
+            </span>
 
-                <div class="div-nav">
-                    <input type="text" id="searchInp" placeholder="Buscar...">
-                    <div class="div-search-btn">
-                        <button id="search-btn"><img src="img/lupa.png"></button>
-                    </div>
-                </div>
-
-                <div class="div-products">
-
-                    <% products.forEach(product=> { %>
-                        <div class="products inactive">
-                            <div class="card" id="<%= product.name %>">
-                                <a href="/robot">
-                                    <div class="side front">
-                                        <img width="300px" height="250px" src="<%= product.imgUrl %>">
-                                        <h2>
-                                            <%= product.name %>
-                                        </h2>
-                                        <p>
-                                            <%= product.description %>
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <% }); %>
-                </div>
-
+            <div class="div-nav">
+               <input type="text" id="searchInp" placeholder="Buscar...">
+               <div class="div-search-btn">
+                  <span id="search-btn"><img src="img/lupa.png"></span>
+               </div>
             </div>
-        </main>
 
-        <footer>
-            <p>&copy; 2023 CarlosV IzanS Ángel Predro. Todos los derechos reservados.</p>
-        </footer>
-        <script src="../script/main.js" type="module"></script>
+            <div class="div-products">
+
+               <% products.forEach(product=> { %>
+                  <div class="products inactive">
+                     <div class="card" id="<%= product.name %>">
+                        <a alt="robot.web" href="/robot" aria-label="Select robot">
+                           <div class="side front">
+                              <img alt="product" width="300px" height="250px" src="<%= product.imgUrl %>">
+                              <h2>
+                                 <%= product.name %>
+                              </h2>
+                              <p>
+                                 <%= product.description %>
+                              </p>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+                  <% }); %>
+            </div>
+
+         </div>
+      </main>
+
+      <footer>
+         <p>&copy; 2023 CarlosV IzanS Ángel Predro. Todos los derechos reservados.</p>
+      </footer>
+      <script src="../script/main.js" type="module"></script>
 </body>
 
 </html>

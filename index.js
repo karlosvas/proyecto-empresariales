@@ -29,9 +29,9 @@ const routes = router;
 app.use(routes);
 
 app.use('/', (req, res, next) => {
-    res.status(404).render("404");
+   res.status(404).render("404");
 })
 
 app.listen(PORT, () => {
-    console.log(`Servidor abierto en el puerto http://localhost:${PORT}`);
+   console.log(`Servidor abierto en el puerto http://localhost:${PORT}`);
 })
