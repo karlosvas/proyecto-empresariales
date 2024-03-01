@@ -16,7 +16,14 @@
 
       <main>
          <div class=" div-main">
-            <span>
+            <div class="div-nav">
+               <input type="text" id="searchInp" placeholder="Buscar...">
+               <div class="div-search-btn">
+                  <span id="search-btn"><img src="img/lupa.png"></span>
+               </div>
+            </div>
+
+            <span class="category">
                <button class="btn-category">
                   Domésticos
                </button>
@@ -31,15 +38,7 @@
                </button>
             </span>
 
-            <div class="div-nav">
-               <input type="text" id="searchInp" placeholder="Buscar...">
-               <div class="div-search-btn">
-                  <span id="search-btn"><img src="img/lupa.png"></span>
-               </div>
-            </div>
-
             <div class="div-products">
-
                <% products.forEach(product=> { %>
                   <div class="products inactive">
                      <div class="card" id="<%= product.name %>">
@@ -58,6 +57,10 @@
                   </div>
                   <% }); %>
             </div>
+
+            <span class="links">
+
+            </span>
 
          </div>
       </main>

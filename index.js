@@ -12,7 +12,6 @@ dotenv.config();
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
-const PORT = process.env.PORT;
 
 app.use(cors());
 app.set("views", join(__dirname, 'views'));
@@ -32,6 +31,8 @@ app.use('/', (req, res, next) => {
    res.status(404).render("404");
 })
 
+// Local
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
    console.log(`Servidor abierto en el puerto http://localhost:${PORT}`);
 })

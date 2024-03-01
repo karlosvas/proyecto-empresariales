@@ -1,26 +1,17 @@
 'use strict'
-import { allProducts, catProducts } from '../../db/CRUD/Product/readProduct.js';
-
+import { products, category } from '../../db/mongodb.js';
 export const controller = {}
-let selectCategory = false;
-let category = {};
-
-// Se cargan todos los productos y las categorías.
-catProducts().then((data) => {
-   category = data;
-});
+export let selectCategory = {};
+let actualCategory = {};
 
 controller.index = async (req, res) => {
    try {
-      let products;
-      if (!selectCategory) {
-         products = await allProducts();
+      if (Object.keys(selectCategory).length != 0 && actualCategory != selectCategory) {
+         actualCategory = selectCategory;
+         res.render("index", { products: selectCategory });
       } else {
-         products = selectCategory
-         selectCategory = false;
+         res.render("index", { products });
       }
-      // Si el usuario seleccionó una categoría, se filtran los productos, y se renderiza la response.
-      res.render("index", { products });
    } catch (error) {
       console.error(error)
    }
@@ -52,7 +43,7 @@ controller.contacto = (req, res) => {
 
 controller.robot = async (req, res) => {
    try {
-      const data = await allProducts();
+      let data = products;
       const cookie = req.cookies.robot;
       const robot = data.find((element) => element.name === cookie);
       if (robot === undefined) res.redirect("/");
