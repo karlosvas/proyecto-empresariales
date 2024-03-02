@@ -1,15 +1,20 @@
 'use strict'
-import { products, category } from '../../db/mongodb.js';
+import { connectDB } from '../../db/mongodb.js';
 export const controller = {}
-export let selectCategory = {};
-let actualCategory = {};
+let selectCategory = {};
+let categoryAll = {};
+let productsAll = {};
 
 controller.index = async (req, res) => {
    try {
-      if (Object.keys(selectCategory).length != 0 && actualCategory != selectCategory) {
-         actualCategory = selectCategory;
+      const { products, category } = await connectDB();
+      categoryAll = category;
+      productsAll = products;
+
+      if (Object.keys(selectCategory).length != 0) {
          res.render("index", { products: selectCategory });
       } else {
+         console.log(Array.isArray(products));
          res.render("index", { products });
       }
    } catch (error) {
@@ -19,7 +24,6 @@ controller.index = async (req, res) => {
 
 controller.postData = async (req, res) => {
    let userInput;
-
    if (req.body.textContent) {
       userInput = req.body.textContent
    } else if (req.body.searchInp) {
@@ -30,8 +34,8 @@ controller.postData = async (req, res) => {
    }
 
    // Se valida si el usuario ingresó una categoría valida.
-   if (category[userInput]) {
-      selectCategory = category[userInput]
+   if (categoryAll[userInput]) {
+      selectCategory = categoryAll[userInput]
       console.log(`Categoria ${userInput} selecionada`)
       res.status(200).send('ok');
    }
@@ -43,11 +47,10 @@ controller.contacto = (req, res) => {
 
 controller.robot = async (req, res) => {
    try {
-      let data = products;
       const cookie = req.cookies.robot;
-      const robot = data.find((element) => element.name === cookie);
+      const robot = productsAll.find((element) => element.name === cookie);
       if (robot === undefined) res.redirect("/");
-      else res.render("robot", { robot, category });
+      else res.render("robot", { robot, category: categoryAll });
    } catch (error) {
       console.error(error)
    }

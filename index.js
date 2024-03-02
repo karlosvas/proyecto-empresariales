@@ -6,7 +6,6 @@ import router from './public/routes/index-routes.js';
 import cors from 'cors';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { connectDB } from './db/mongodb.js';
 
 dotenv.config();
 
@@ -21,8 +20,6 @@ app.set("view engine", "ejs");
 app.disable('x-powered-by');
 app.use(cookieParser());
 app.use(express.json());
-
-connectDB();
 
 const routes = router;
 app.use(routes);

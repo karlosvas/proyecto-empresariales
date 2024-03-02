@@ -2,8 +2,8 @@
 import mongoose from 'mongoose';
 import { allProducts, catProducts } from './CRUD/Product/readProduct.js';
 
-export let products = {};
-export let category = {};
+export let products = [];
+export let category = [];
 
 export const connectDB = async () => {
    try {
@@ -11,11 +11,12 @@ export const connectDB = async () => {
       // Se cargan todos los productos
       products = await allProducts();
       // Se cargan todas las categorías
-      catProducts().then((data) => {
-         category = data;
-      });
-      console.log('Connected!')
+      category = await catProducts();
+      // Se cierra la conexión
+      mongoose.connection.close();
+      console.log('Request finished!')
    } catch (error) {
       console.error("Error al conectarse a la base de datos: ", error);
    }
+   return { products, category }
 }
