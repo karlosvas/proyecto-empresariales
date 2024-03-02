@@ -1,18 +1,18 @@
 'use strict'
 import { connectDB } from '../../db/mongodb.js';
 export const controller = {}
-let selectCategory = {};
-let categoryAll = {};
-let productsAll = {};
+let selectCategory = [];
+let categoryAll = [];
+let productsAll = [];
 
 controller.index = async (req, res) => {
    try {
       const { products, category } = await connectDB();
       categoryAll = category;
       productsAll = products;
-
-      if (Object.keys(selectCategory).length != 0) {
+      if (selectCategory.length != 0) {
          res.render("index", { products: selectCategory });
+         selectCategory = [];
       } else {
          console.log(Array.isArray(products));
          res.render("index", { products });

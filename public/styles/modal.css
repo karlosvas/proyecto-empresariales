@@ -1,93 +1,105 @@
 body {
-  margin: 0;
-  font-family: monospace;
-  color: aliceblue;
-  overflow-y: scroll;
-  & .form-background {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6); 
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    & .form {
-      background-color: rgb(248, 248, 248);
-      color: #1a1a1a;
+   margin: 0;
+   font-family: monospace;
+   color: aliceblue;
+   overflow-y: scroll;
+
+   & .form-background {
       position: fixed;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 100;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 10px;
-      z-index: 120;
-      min-height: 400px;
-      min-width: 400px;
-      & .submit-form {
-        position: absolute;
-        bottom: 30;
-        right: 30;
-        color: aliceblue;
-        border-radius: 10px;
-        background-color: rgb(44, 44, 44);
-        border: none;
-        font-weight: 500;
-        padding: 8px;
+
+      & .form {
+         background-color: rgb(248, 248, 248);
+         color: #1a1a1a;
+         position: fixed;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         border-radius: 10px;
+         z-index: 120;
+         min-height: 400px;
+         min-width: 500px;
+
+         & .submit-form {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            color: #333;
+            border-radius: 10px;
+            background-color: rgb(141, 235, 141);
+            border: none;
+            padding: 7px 10px;
+            font-weight: semi-bold;
+            font-size: medium;
+            cursor: pointer;
+         }
+
+         & button:hover {
+            transition: background-color 0.3s;
+            border: none;
+            color: #f2f2f2;
+            background-color: rgb(158, 255, 158);
+         }
+
+         & input[type="email"] {
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 14px;
+            color: #333;
+         }
+
+         & input[type="password"] {
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 14px;
+            color: #333;
+         }
+
+         & #res {
+            color: red;
+         }
+
+         & #res-true {
+            color: rgb(0, 255, 34);
+         }
+
+         & .form-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #383838;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding: 15px 0;
+            text-align: right;
+
+            & .del-form {
+               background-color: rgb(196, 60, 60);
+               border: 2px solid rgb(255, 127, 127);
+               height: 20px;
+               width: 20px;
+               border-radius: 50%;
+               cursor: pointer;
+               margin-right: 20px;
+            }
+         }
       }
-      & button:hover{
-        transition:  background-color 0.3s;
-        border: none;
-        color: black;
-        background-color: rgb(44, 255, 185);
-      }
-      & input[type="email"] {
-        background-color: #f2f2f2;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 10px;
-        margin: 5px 0;
-        font-size: 14px;
-        color: #333;
-      }
-      & input[type="password"] {
-        background-color: #f2f2f2;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 10px;
-        margin: 5px 0;
-        font-size: 14px;
-        color: #333;
-      }
-      & #res{
-        color: red;
-      }
-      & #res-true{
-        color: rgb(0, 255, 34);
-      }
-      & .form-bar {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background-color: #383838;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        padding: 15px 0;
-        text-align: right;
-        & .del-form {
-          background-color: rgb(196, 60, 60);
-          border: 2px solid rgb(255, 127, 127);
-          height: 20px;
-          width: 20px;
-          border-radius: 50%;
-          cursor: pointer;
-          margin-right: 20px;
-        }
-      }
-    }
-  }
+   }
 }

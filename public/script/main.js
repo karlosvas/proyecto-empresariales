@@ -44,15 +44,20 @@ function validateData() {
 
 const btnCategory = document.querySelectorAll('.btn-category');
 btnCategory.forEach((btn) => {
-   btn.addEventListener('click', () => {
-      let category = btn.textContent.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase().trim();
-      console.log(`Se a clicado en ${category}`)
-      validateDataOfButton(category);
+   btn.addEventListener('click', async () => {
+      btn.disabled = true;
+      try {
+         let category = btn.textContent.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase().trim();
+         await requestData(category);
+         btn.disabled = false;
+      } catch (error) {
+         console.error(error)
+      }
    });
 });
 
 
-function validateDataOfButton(textContent) {
+const requestData = async (textContent) => {
    // La información se lleva a la ruta /post
    fetch('/post', {
       method: 'POST',

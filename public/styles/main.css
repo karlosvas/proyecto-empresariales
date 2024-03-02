@@ -19,6 +19,21 @@ main {
          flex-direction: column;
          align-items: start;
          padding-left: 30px;
+
+         & .btn-category {
+            border-radius: 5px;
+            font-size: 20px;
+            margin-top: 20px;
+            border: none;
+            background-color: rgb(141, 235, 141);
+            cursor: pointer;
+            padding: 5px 10px;
+         }
+
+         & .btn-category:hover {
+            background-color: rgb(158, 255, 158);
+            color: white;
+         }
       }
 
       & .links {
@@ -28,16 +43,6 @@ main {
          flex-direction: column;
          align-items: start;
          padding-left: 30px;
-      }
-
-      & .btn-category {
-         border-radius: 0 10px 10px 0;
-         font-size: 20px;
-         margin-top: 20px;
-         border: none;
-         background-color: rgb(141, 235, 141);
-         color: rgb(27, 27, 27);
-         cursor: pointer;
       }
 
       & .div-nav {
@@ -51,25 +56,21 @@ main {
 
          & #search-btn {
             border-radius: 0 10px 10px 0;
+            border: 2px solid rgb(0, 0, 0);
             position: absolute;
             right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 100%;
-            width: 80px;
-            font-size: 20px;
-            border: none;
+            top: 0;
+            height: 90%;
+            width: 60px;
             background-color: rgb(141, 235, 141);
-            color: rgb(255, 255, 255);
             cursor: pointer;
-            border-right: 2px solid rgb(0, 0, 0);
-            border-top: 2px solid rgb(0, 0, 0);
-            border-bottom: 2px solid rgb(0, 0, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             & img {
                height: 20px;
                width: 20px;
-               margin-right: 5px;
             }
          }
 
@@ -95,7 +96,6 @@ main {
       grid-column-start: 2;
       padding: 0;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       justify-content: center;
       align-items: center;
       grid-template-columns: repeat(3, 0.1fr);
@@ -206,88 +206,55 @@ footer {
 /* Estilos para pantallas más pequeñas */
 @media screen and (max-width: 1000px) {
    main {
-      padding-top: 15%;
+
+      /* Productos */
+      & .div-products {
+         grid-template-columns: repeat(2, 0.1fr);
+      }
+
+      & .div-main {
+         padding-top: 5%;
+         display: inline-block;
+
+         & .div-nav {
+            margin: 60px auto;
+         }
+
+         /* Categorias botones*/
+         & .category {
+            flex-direction: row;
+            justify-content: center;
+            margin: 40px;
+
+            & .btn-category {
+               margin: 10px;
+            }
+         }
+      }
    }
 }
 
 @media screen and (max-width: 700px) {
-   header {
-      & .hr-list {
-         padding-right: 70px;
-         font-size: 15px;
-      }
-
-      & img {
-         top: 20;
-         height: 70px;
-         width: 70px;
-      }
-
-      & .register {
-         right: 5;
-
-         & li {
-            margin-right: 10px;
-
-            & button {
-               height: 35px;
-               width: 70px;
-            }
-         }
-      }
-   }
-
    main {
       padding-top: 20%;
 
-      .products {
-         width: 100%;
-      }
-   }
-}
-
-@media screen and (max-width: 470px) {
-   body {
-      .form {
-         min-width: 300px;
-         text-align: center;
-
-         & .form-content {
-            padding: 10px 13px;
+      & .div-main {
+         & .div-nav {
+            width: 80%;
          }
 
-         & h1 {
-            margin-top: -20px;
+         & .category {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
          }
-      }
-   }
 
-   header {
-      & .hr-list {
-         padding-right: 80px;
-         font-size: 10px;
-
-         & li {
-            margin: 5px;
+         & .div-products {
+            grid-template-columns: repeat(1, 0.1fr);
          }
-      }
 
-      & img {
-         top: 25;
-         height: 50px;
-         width: 50px;
-      }
-
-      & .register {
-         right: 5;
-
-         & li {
-            margin-right: 10px;
-
-            & button {
-               height: 30px;
-               width: 60px;
-            }
+         .products {
+            width: 100%;
          }
       }
    }

@@ -65,29 +65,58 @@ header {
          & .register {
             list-style: none;
             display: flex;
-            position: absolute;
-            right: 20;
 
-            & li {
-               margin-right: 20px;
+            & li>button {
+               color: aliceblue;
+               border-radius: 10px;
+               background-color: rgb(44, 44, 44);
+               border: none;
+               padding: 10px;
+               margin-right: 10px;
+            }
 
-               & button {
-                  color: aliceblue;
-                  border-radius: 10px;
-                  background-color: rgb(44, 44, 44);
-                  border: none;
-                  height: 40px;
-                  width: 80px;
-               }
+            & button:hover {
+               transition: background-color 0.3s;
+               border: none;
+               color: black;
+               background-color: rgb(141, 235, 141);
+            }
+         }
+      }
+   }
+}
 
-               & button:hover {
-                  transition: background-color 0.3s;
-                  border: none;
-                  color: black;
-                  background-color: rgb(141, 235, 141);
+@media screen and (max-width: 700px) {
+   header {
+      height: 10% !important;
+
+      & .div-header {
+         height: 10px;
+
+         & h2 {
+            font-size: 15px;
+         }
+
+         & .div-robot>a>img {
+            width: 50px;
+            height: 50px;
+
+         }
+
+         & .div-log {
+            margin-right: 20px;
+
+            & .register {
+               font-size: 10px;
+               margin: 0;
+               padding: 0;
+
+               & li>button {
+                  font-size: 10px;
                }
             }
          }
+
       }
    }
 }
