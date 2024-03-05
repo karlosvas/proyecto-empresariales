@@ -1,4 +1,5 @@
 "use strict"
+
 import { login } from './login.js'
 login();
 
@@ -6,9 +7,7 @@ const imagenes = document.querySelectorAll('.card');
 imagenes.forEach((imagen) => {
    imagen.addEventListener('click', () => {
       const id = imagen.getAttribute('id');
-      console.log(id)
       document.cookie = `robot=${id}`;
-
    });
 });
 
@@ -16,7 +15,7 @@ const btnSearch = document.getElementById('search-btn');
 const inputSearch = document.getElementById('searchInp');
 
 btnSearch.addEventListener('click', validateData);
-inputSearch.addEventListener('keyup', () => {
+inputSearch.addEventListener('keyup', (event) => {
    if (event.keyCode === 13) {
       event.preventDefault();
       validateData()
@@ -24,8 +23,7 @@ inputSearch.addEventListener('keyup', () => {
 });
 
 function validateData() {
-   // La información se lleva a la ruta /post
-   console.log(inputSearch.value, typeof inputSearch.value)
+   // La información de el inputt del usuario se lleva a la ruta /post
    fetch('/post', {
       method: 'POST',
       headers: {
@@ -44,11 +42,12 @@ function validateData() {
 
 const btnCategory = document.querySelectorAll('.btn-category');
 btnCategory.forEach((btn) => {
-   btn.addEventListener('click', async () => {
+   btn.addEventListener('click', async (event) => {
+      event.preventDefault();
       btn.disabled = true;
       try {
          let category = btn.textContent.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase().trim();
-         await requestData(category);
+         requestData(category);
          btn.disabled = false;
       } catch (error) {
          console.error(error)
@@ -57,8 +56,8 @@ btnCategory.forEach((btn) => {
 });
 
 
-const requestData = async (textContent) => {
-   // La información se lleva a la ruta /post
+function requestData(textContent) {
+   // La información de la categoria selecionad se lleva a la ruta /post
    fetch('/post', {
       method: 'POST',
       headers: {

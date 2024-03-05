@@ -14,7 +14,6 @@ controller.index = async (req, res) => {
          res.render("index", { products: selectCategory });
          selectCategory = [];
       } else {
-         console.log(Array.isArray(products));
          res.render("index", { products });
       }
    } catch (error) {
@@ -29,14 +28,13 @@ controller.postData = async (req, res) => {
    } else if (req.body.searchInp) {
       userInput = req.body.searchInp.toLowerCase().trim();
    } else {
-      console.log('No existe la categoría');
+      console.error('No existe la categoría');
       return;
    }
 
    // Se valida si el usuario ingresó una categoría valida.
    if (categoryAll[userInput]) {
       selectCategory = categoryAll[userInput]
-      console.log(`Categoria ${userInput} selecionada`)
       res.status(200).send('ok');
    }
 }
