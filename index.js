@@ -13,9 +13,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 
 app.use(cors());
-app.set("views", join(__dirname, 'views'));
 app.use(express.static(join(__dirname, "public")));
 app.set("view engine", "ejs");
+app.set("views", join(__dirname, "views"));
 
 app.disable('x-powered-by');
 app.use(cookieParser());
