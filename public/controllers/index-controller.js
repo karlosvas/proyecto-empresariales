@@ -1,13 +1,13 @@
 'use strict'
-import { connectDB } from '../../db/mongodb.js';
+import { getData } from '../../db/mongodb.js'
 export const controller = {}
 let selectCategory = [];
 let categoryAll = [];
 let productsAll = [];
 
-controller.index = async (req, res) => {
+controller.index = async (_req, res) => {
    try {
-      const { products, category } = await connectDB();
+      const { products, category } = await getData();
       categoryAll = category;
       productsAll = products;
       if (selectCategory.length != 0) {

@@ -2,9 +2,15 @@
 import { modelProduct, modelCategoryProduct } from '../../models/Product.js'
 
 export async function allProducts() {
-   const products = await modelProduct.find()
-   return products;
+   try {
+      const products = await modelProduct.find();
+      return products;
+   } catch (error) {
+      console.error("Error al obtener todos los productos:", error);
+      throw error;
+   }
 }
+
 
 export async function catProducts() {
    try {

@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 import { login } from './login.js'
 login();
@@ -24,7 +24,7 @@ inputSearch.addEventListener('keyup', (event) => {
 
 function validateData() {
    // La información de el inputt del usuario se lleva a la ruta /post
-   fetch('/post', {
+   fetch('/api/post', {
       method: 'POST',
       headers: {
          'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ btnCategory.forEach((btn) => {
 
 function requestData(textContent) {
    // La información de la categoria selecionad se lleva a la ruta /post
-   fetch('/post', {
+   fetch('/api/post', {
       method: 'POST',
       headers: {
          'Content-Type': 'application/json'

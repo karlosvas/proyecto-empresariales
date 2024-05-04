@@ -1,36 +1,44 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RoboTec</title>
-    <link rel="stylesheet" type="text/css" href="styles/robot.css">
-    <link rel="stylesheet" type="text/css" href="styles/modal.css">
-    <link rel="stylesheet" type="text/css" href="styles/header.css">
-    <link rel="icon" type="image/x-icon" href="img/icono.ico">
-</head>
-<body>
-    <%- include('./partials/header') %>
 
-    <main>
-        <div class="product">
-            <h1 class="title"><%= robot.name %></h1>
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>RoboTec</title>
+   <link rel="stylesheet" type="text/css" href="styles/global.css">
+   <link rel="stylesheet" type="text/css" href="styles/robot.css">
+   <link rel="stylesheet" type="text/css" href="styles/modal.css">
+   <link rel="stylesheet" type="text/css" href="styles/header.css">
+   <link rel="icon" type="image/x-icon" href="img/icono.ico">
+</head>
+
+<body>
+   <%- include('./partials/header') %>
+
+      <main>
+         <div class="product">
+            <h1 class="title">
+               <%= robot.name %>
+            </h1>
             <img src="<%= robot.imgUrl %>">
             <p><%- robot.description %></p>
-            <h1 class="price"><%= robot.price %>€</h1>
+            <h1 class="price">
+               <%= robot.price %>€
+            </h1>
             <button id="buy">Comprar</button>
-        </div>
-        <div class="div-specs">
+         </div>
+         <div class="div-specs">
             <h2>Características</h2>
-            <% let specsArray = robot.specs.split('.'); %>
-            <% for(let i = 0; i < specsArray.length; i++) { %>
-                <%= specsArray[i] %><br>
-            <% } %>
-        </div>
-    </main>
+            <% let specsArray=robot.specs.split('.'); %>
+               <% for(let i=0; i < specsArray.length; i++) { %>
+                  <%= specsArray[i] %><br>
+                     <% } %>
+         </div>
+      </main>
 
-    <footer>
+      <footer>
 
-    </footer>
-    <script src="../script/robot.js" type="module"></script>
+      </footer>
+      <script src="../script/robot.js" type="module"></script>
 </body>
+
 </html>
