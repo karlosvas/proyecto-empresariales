@@ -2,7 +2,7 @@ header {
    user-select: none;
    position: fixed;
    top: 0;
-   height: 13%;
+   height: 10%;
    width: 100%;
    font-size: 15px;
    background-color: rgb(14, 14, 14);
@@ -10,7 +10,7 @@ header {
 
    & .div-header {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       display: flex;
       align-items: center;
@@ -18,6 +18,8 @@ header {
       height: 100%;
 
       & #logo {
+         position: absolute;
+         left: 30px;
          display: flex;
          justify-content: start;
          align-items: center;
@@ -48,37 +50,6 @@ header {
                   text-decoration: none;
                   color: inherit;
                }
-            }
-         }
-      }
-
-      & .div-log {
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         height: 100%;
-         margin-right: 10px;
-
-         & .form-log {
-            list-style: none;
-            display: flex;
-
-            & li>button {
-               cursor: pointer;
-               color: aliceblue;
-               border-radius: 5px;
-               background-color: rgb(44, 44, 44);
-               border: none;
-               padding: 10px;
-               margin-right: 10px;
-               width: 80px;
-            }
-
-            & button:hover {
-               transition: background-color 0.3s;
-               border: none;
-               color: black;
-               background-color: rgb(141, 235, 141);
             }
          }
       }
@@ -114,24 +85,6 @@ header {
                   margin-left: 10px;
                   width: 50px;
                   height: 50px;
-               }
-            }
-         }
-
-         & .div-log {
-            margin-right: 30px;
-
-            & .form-log {
-               display: flex;
-               flex-direction: column;
-               justify-content: center;
-               align-items: center;
-               padding: 0;
-               margin: 0;
-
-               & li>button {
-                  padding: 5px;
-                  margin: 3px;
                }
             }
          }

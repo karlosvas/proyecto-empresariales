@@ -32,6 +32,8 @@ controller.postData = async (req, res) => {
       return;
    }
 
+
+   userInput = userInput.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
    // Se valida si el usuario ingresó una categoría valida.
    if (categoryAll[userInput]) {
       selectCategory = categoryAll[userInput]

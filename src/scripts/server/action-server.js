@@ -22,7 +22,6 @@ export function enviarFormulario() {
     })
         .then(response => response.json())
         .then(data => {
-            // Manejar la respuesta del servidor si es necesario
             console.log(data);
         })
         .catch(error => {

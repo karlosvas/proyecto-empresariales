@@ -1,8 +1,5 @@
 'use strict'
 
-import { login } from './login.js'
-login();
-
 const imagenes = document.querySelectorAll('.card');
 imagenes.forEach((imagen) => {
    imagen.addEventListener('click', () => {
@@ -23,7 +20,6 @@ inputSearch.addEventListener('keyup', (event) => {
 });
 
 function validateData() {
-   // La información de el inputt del usuario se lleva a la ruta /post
    fetch('/api/post', {
       method: 'POST',
       headers: {
@@ -36,7 +32,6 @@ function validateData() {
    }).catch((err) => {
       console.error(err)
    })
-   // Se borra la información del input.
    inputSearch.value = '';
 }
 
@@ -57,7 +52,6 @@ btnCategory.forEach((btn) => {
 
 
 function requestData(textContent) {
-   // La información de la categoria selecionad se lleva a la ruta /post
    fetch('/api/post', {
       method: 'POST',
       headers: {

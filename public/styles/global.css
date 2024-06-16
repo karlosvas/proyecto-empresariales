@@ -1,3 +1,10 @@
+:root {
+   --verde: rgb(141, 235, 141);
+   --verdePulse: rgb(157, 218, 197);
+   --button: linear-gradient(rgb(6, 223, 96), rgb(96, 255, 143));
+   --buttonPulse: linear-gradient(rgb(77, 216, 174), rgb(157, 218, 197));
+}
+
 body {
    margin: 0;
    font-family: monospace;

@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>RoboTech</title>
-   <link rel="stylesheet" type="text/css" href="styles/global.css">
    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
    <link rel="stylesheet" type="text/css" href="styles/index.css">
-   <link rel="stylesheet" type="text/css" href="styles/modal.css">
-   <script defer src="../script/main.js" type="module"></script>
+   <script src="/bundle.js" type="module" defer></script>
 </head>
+
 
 <body>
    <div><%- include('./partials/header') %></div>
@@ -30,7 +29,7 @@
                Industriales
             </button>
             <button class="btn-category">
-               Tecnologicos
+               Tecnológicos
             </button>
             <button class="btn-category">
                Servicio
@@ -41,16 +40,10 @@
             <% products.forEach(product=> { %>
                <div class="card" id="<%= product.name %>">
                   <a alt="robot.web" href="/robot" aria-label="Select robot">
-                     <div class="side-front">
-                        <img alt="product" src="<%= product.imgUrl %>">
-                        <h2>
-                           <%= product.name %>
-                        </h2>
-                        <p>
-                           <%= product.description %>
-                        </p>
-                     </div>
+                     <img loading="lazy" style="width: 100%; height: 300px;" alt="product" src="<%= product.imgUrl %>">
                   </a>
+                  <h2> <%= product.name %> </h2>
+                  <p> <%= product.description %> </p>
                </div>
                <% }); %>
          </div>

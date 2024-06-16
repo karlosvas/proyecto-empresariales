@@ -52,7 +52,7 @@ main{
     }
     & .div-specs{
         width: 50%;
-        background-color: rgb(141, 235, 141);
+        background-color: var(--verde);
         padding: 0 40px 20px 40px;
         border-radius: 5px;
         margin-bottom: 50px;
